@@ -40,7 +40,7 @@ class _MainPage extends StatelessWidget {
             contentPadding: EdgeInsets.all(10),
           ),
         ),
-        mediumVSpacing,
+        bigVSpacing,
         VxBox()
             .width(context.screenWidth)
             .height(100.h)
@@ -52,12 +52,12 @@ class _MainPage extends StatelessWidget {
             )
             .roundedSM
             .make(),
-        mediumVSpacing,
+        bigVSpacing,
         'Kategori Produk'.text.textStyle(bodyTextTheme).make(),
-        mediumVSpacing,
+        bigVSpacing,
         VxBox(
           child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
             VStack([
               Image.asset(
                 makanan,
