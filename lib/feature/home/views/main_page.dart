@@ -32,12 +32,9 @@ class _MainPage extends StatelessWidget {
       ),
       body: VStack([
         TextFormField(
-          decoration: const InputDecoration(
-            enabledBorder: OutlineInputBorder(),
-            focusedBorder: OutlineInputBorder(),
-            hintText: 'Cari',
-            suffixIcon: Icon(Icons.search),
-            contentPadding: EdgeInsets.all(10),
+          decoration: formFieldStyle(
+            'Cari',
+            suffixIcon: const Icon(Icons.search),
           ),
         ),
         bigVSpacing,
@@ -92,7 +89,7 @@ class _MainPage extends StatelessWidget {
                   .color(ColorStyle.primaryColorLighter)
                   .roundedFull
                   .make(),
-              'bangunan'.text.textStyle(bodyTextTheme).make(),
+              'Bangunan'.text.textStyle(bodyTextTheme).make(),
             ]),
           ]).p16(),
         )

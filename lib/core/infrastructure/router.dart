@@ -5,10 +5,12 @@ import '../../feature/feature.dart';
 
 class RouteName {
   static const String onboarding = 'onboarding';
+  static const String home = 'home';
 }
 
 class RoutePath {
   static const String onboarding = '/';
+  static const String home = '/home';
 }
 
 CustomTransitionPage<void> buildPageWithCustomTransition({
@@ -39,6 +41,15 @@ GoRouter router = GoRouter(
         context: context,
         state: state,
         child: const OnboardingPage(),
+      ),
+    ),
+    GoRoute(
+      name: RouteName.home,
+      path: RoutePath.home,
+      pageBuilder: (context, state) => buildPageWithCustomTransition(
+        context: context,
+        state: state,
+        child: const MainPage(),
       ),
     ),
   ],

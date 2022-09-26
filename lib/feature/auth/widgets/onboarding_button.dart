@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../../core/core.dart';
@@ -55,7 +56,10 @@ class OnboardingButton extends StatelessWidget {
               ),
               bigestVSpacing,
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                  context.goNamed(RouteName.home);
+                },
                 child: 'Masuk'.text.textStyle(mediumTextTheme).make(),
               ),
               bigestVSpacing,

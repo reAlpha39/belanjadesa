@@ -16,14 +16,16 @@ ThemeData theme(BuildContext context) {
     dialogBackgroundColor: Colors.white,
     textTheme: GoogleFonts.latoTextTheme(),
     indicatorColor: Colors.white,
+    scaffoldBackgroundColor: Colors.white,
     appBarTheme: AppBarTheme(
-        foregroundColor: Colors.white,
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarColor: Colors.transparent,
-          statusBarBrightness: Brightness.light,
-          statusBarIconBrightness: Brightness.dark,
-        ),
-        color: ColorStyle.primaryColor),
+      foregroundColor: Colors.white,
+      systemOverlayStyle: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarBrightness: Brightness.light,
+        statusBarIconBrightness: Brightness.dark,
+      ),
+      color: ColorStyle.primaryColor,
+    ),
     progressIndicatorTheme: ProgressIndicatorThemeData(
       color: ColorStyle.primaryColor,
     ),
