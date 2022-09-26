@@ -97,6 +97,23 @@ class _MainPage extends StatelessWidget {
             .border(color: ColorStyle.primaryColorLighter)
             .roundedSM
             .make(),
+        bigVSpacing,
+        ZStack([
+          Image.asset(
+            banner,
+            fit: BoxFit.cover,
+          ).box.width(context.screenWidth).height(250.h).make(),
+          VStack([
+            const SizedBox(height: 150),
+            VxBox()
+                .width(context.screenWidth)
+                .height(100.h)
+                .color(Colors.white)
+                .roundedSM
+                .make()
+                .p16(),
+          ])
+        ]),
       ]).px16(),
     );
   }
