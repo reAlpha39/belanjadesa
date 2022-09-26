@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_i18n/flutter_i18n.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/core.dart';
@@ -29,6 +31,17 @@ class Root extends StatelessWidget {
             routerDelegate: router.routerDelegate,
             routeInformationProvider: router.routeInformationProvider,
             title: 'Pastiangkut Customer',
+            localizationsDelegates: [
+              FlutterI18nDelegate(
+                translationLoader: FileTranslationLoader(
+                  fallbackFile: 'id_ID',
+                  basePath: 'assets/i18n',
+                  forcedLocale: const Locale('id', 'ID'),
+                ),
+              ),
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+            ],
             builder: (context, widget) {
               ScreenUtil.init(
                 context,
