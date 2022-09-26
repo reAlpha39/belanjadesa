@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:go_router/go_router.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -28,31 +29,53 @@ class OnboardingButton extends StatelessWidget {
             expand: false,
             builder: (context, scrollController) => VStack([
               bigestVSpacing,
-              'Masuk'
-                  .text
-                  .textStyle(bigTextTheme)
-                  .color(ColorStyle.primaryColor)
-                  .bold
-                  .makeCentered(),
+              I18nText(
+                'auth.login',
+                child: Text(
+                  '',
+                  style: bigTextTheme.copyWith(
+                    color: ColorStyle.primaryColor,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ).centered(),
               bigestVSpacing,
-              'Username'
-                  .text
-                  .textStyle(smallTextTheme)
-                  .color(ColorStyle.primaryColor)
-                  .make(),
+              I18nText(
+                'auth.username',
+                child: Text(
+                  '',
+                  style: smallTextTheme.copyWith(
+                    color: ColorStyle.primaryColor,
+                  ),
+                ),
+              ),
               smallestVSpacing,
               TextFormField(
-                decoration: formFieldStyle('Username'),
+                decoration: formFieldStyle(
+                  FlutterI18n.translate(
+                    context,
+                    'auth.username',
+                  ),
+                ),
               ),
               bigestVSpacing,
-              'Password'
-                  .text
-                  .textStyle(smallTextTheme)
-                  .color(ColorStyle.primaryColor)
-                  .make(),
+              I18nText(
+                'auth.password',
+                child: Text(
+                  '',
+                  style: smallTextTheme.copyWith(
+                    color: ColorStyle.primaryColor,
+                  ),
+                ),
+              ),
               smallestVSpacing,
               TextFormField(
-                decoration: formFieldStyle('Password'),
+                decoration: formFieldStyle(
+                  FlutterI18n.translate(
+                    context,
+                    'auth.password',
+                  ),
+                ),
               ),
               bigestVSpacing,
               ElevatedButton(
@@ -60,15 +83,15 @@ class OnboardingButton extends StatelessWidget {
                   Navigator.pop(context);
                   context.goNamed(RouteName.home);
                 },
-                child: 'Masuk'.text.textStyle(mediumTextTheme).make(),
+                child: FlutterI18n.translate(context, 'auth.login').text.textStyle(mediumTextTheme).make(),
               ),
               bigestVSpacing,
               HStack([
-                'Kamu belum memiliki akun? '
+                FlutterI18n.translate(context, 'auth.noAccount')
                     .text
                     .textStyle(smallTextTheme)
                     .make(),
-                'Daftar'
+                FlutterI18n.translate(context, 'auth.register')
                     .text
                     .textStyle(smallTextTheme)
                     .color(ColorStyle.primaryColor)
@@ -79,11 +102,15 @@ class OnboardingButton extends StatelessWidget {
           ),
         );
       },
-      child: 'Mulai'
-          .text
-          .textStyle(bodyTextTheme)
-          .color(ColorStyle.primaryColor)
-          .make(),
+      child: I18nText(
+        'onboarding.button',
+        child: Text(
+          '',
+          style: bodyTextTheme.copyWith(
+            color: ColorStyle.primaryColor,
+          ),
+        ),
+      ),
     ).p16();
   }
 }

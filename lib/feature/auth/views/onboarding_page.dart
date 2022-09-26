@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -27,16 +28,17 @@ class OnboardingPage extends StatelessWidget {
         VxBox(
           child: VStack([
             VStack([
-              'Belanjadesa.id'
-                  .text
-                  .textStyle(
-                    biggestTextTheme.copyWith(
-                      fontSize: 32.sp,
-                    ),
-                  )
-                  .color(Colors.white)
-                  .italic
-                  .makeCentered(),
+              I18nText(
+                'onboarding.title',
+                child: Text(
+                  '',
+                  style: biggestTextTheme.copyWith(
+                    fontSize: 32.sp,
+                    color: Colors.white,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              )
             ]).centered().expand(),
             const OnboardingButton()
           ]),
