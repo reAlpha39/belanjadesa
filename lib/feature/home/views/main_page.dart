@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -22,18 +23,22 @@ class _MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: 'Halo, Muhammad Miftah'
-            .text
-            .textStyle(bodyTextTheme)
-            .color(Colors.black)
-            .make(),
+        title:
+            '${FlutterI18n.translate(context, "home.hello")}, Muhammad Miftah'
+                .text
+                .textStyle(bodyTextTheme)
+                .color(Colors.black)
+                .make(),
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
       body: VStack([
         TextFormField(
           decoration: formFieldStyle(
-            'Cari',
+            FlutterI18n.translate(
+              context,
+              'home.searchPlaceholder',
+            ),
             suffixIcon: const Icon(Icons.search),
           ),
         ),
@@ -50,7 +55,10 @@ class _MainPage extends StatelessWidget {
             .roundedSM
             .make(),
         bigVSpacing,
-        'Kategori Produk'.text.textStyle(bodyTextTheme).make(),
+        FlutterI18n.translate(context, 'home.productCategory')
+            .text
+            .textStyle(bodyTextTheme)
+            .make(),
         bigVSpacing,
         VxBox(
           child:
@@ -65,7 +73,10 @@ class _MainPage extends StatelessWidget {
                   .color(ColorStyle.primaryColorLighter)
                   .roundedFull
                   .make(),
-              'Makanan'.text.textStyle(bodyTextTheme).make(),
+              FlutterI18n.translate(context, 'home.food')
+                  .text
+                  .textStyle(bodyTextTheme)
+                  .make(),
             ]),
             VStack([
               Image.asset(
@@ -77,7 +88,10 @@ class _MainPage extends StatelessWidget {
                   .color(ColorStyle.primaryColorLighter)
                   .roundedFull
                   .make(),
-              'Fashion'.text.textStyle(bodyTextTheme).make(),
+              FlutterI18n.translate(context, 'home.fashion')
+                  .text
+                  .textStyle(bodyTextTheme)
+                  .make(),
             ]),
             VStack([
               Image.asset(
@@ -89,7 +103,10 @@ class _MainPage extends StatelessWidget {
                   .color(ColorStyle.primaryColorLighter)
                   .roundedFull
                   .make(),
-              'Bangunan'.text.textStyle(bodyTextTheme).make(),
+              FlutterI18n.translate(context, 'home.building')
+                  .text
+                  .textStyle(bodyTextTheme)
+                  .make(),
             ]),
           ]).p16(),
         )
