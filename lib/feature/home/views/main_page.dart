@@ -82,33 +82,7 @@ class _MainPage extends StatelessWidget {
                     children: List.generate(
                       10,
                       (index) {
-                        return VxBox(
-                          child: VStack([
-                            VxBox()
-                                .width(context.screenWidth)
-                                .height(130.h)
-                                .color(Colors.red)
-                                .roundedSM
-                                .make(),
-                            'Nama Produk'.text.textStyle(bodyTextTheme).make(),
-                            HStack([
-                              'Rp56000'
-                                  .text
-                                  .textStyle(
-                                    mediumTextTheme.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  )
-                                  .make()
-                                  .expand(),
-                              Icon(
-                                Icons.shopping_cart,
-                                size: 20.sp,
-                                color: ColorStyle.primaryColor,
-                              ),
-                            ]),
-                          ]).p(6),
-                        ).roundedSM.border(color: Colors.grey).make();
+                        return const ProductCard();
                       },
                     ),
                   ).expand();
@@ -122,33 +96,7 @@ class _MainPage extends StatelessWidget {
                     children: List.generate(
                       10,
                       (index) {
-                        return VxBox(
-                          child: VStack([
-                            VxBox()
-                                .width(context.screenWidth)
-                                .height(130.h)
-                                .color(Colors.pink)
-                                .roundedSM
-                                .make(),
-                            'Nama Produk'.text.textStyle(bodyTextTheme).make(),
-                            HStack([
-                              'Rp56000'
-                                  .text
-                                  .textStyle(
-                                    mediumTextTheme.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  )
-                                  .make()
-                                  .expand(),
-                              Icon(
-                                Icons.shopping_cart,
-                                size: 20.sp,
-                                color: ColorStyle.primaryColor,
-                              ),
-                            ]),
-                          ]).p(6),
-                        ).roundedSM.border(color: Colors.grey).make();
+                        return const ProductCard();
                       },
                     ),
                   ).expand();
@@ -161,33 +109,7 @@ class _MainPage extends StatelessWidget {
                   children: List.generate(
                     10,
                     (index) {
-                      return VxBox(
-                        child: VStack([
-                          VxBox()
-                              .width(context.screenWidth)
-                              .height(130.h)
-                              .color(Colors.yellow)
-                              .roundedSM
-                              .make(),
-                          'Nama Produk'.text.textStyle(bodyTextTheme).make(),
-                          HStack([
-                            'Rp56000'
-                                .text
-                                .textStyle(
-                                  mediumTextTheme.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )
-                                .make()
-                                .expand(),
-                            Icon(
-                              Icons.shopping_cart,
-                              size: 20.sp,
-                              color: ColorStyle.primaryColor,
-                            ),
-                          ]),
-                        ]).p(6),
-                      ).roundedSM.border(color: Colors.grey).make();
+                      return const ProductCard();
                     },
                   ),
                 ).expand();
