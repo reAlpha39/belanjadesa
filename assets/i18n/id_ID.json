@@ -9,11 +9,19 @@
         "button": "Mulai"
     },
     "auth": {
-        "login": "Masuk",
-        "username": "Username",
-        "password": "Password",
-        "noAccount": "Kamu belum memiliki akun? ",
-        "register": "Daftar"
+      "login": "Masuk",
+      "register": "Daftar",
+      "username": "Username",
+      "password": "Password",
+      "confirmPassword": "Konfirmasi password",
+      "noAccount": "Kamu belum memiliki akun? ",
+      "registerNow": "Daftar sekarang",
+      "haveAccount": "Sudah punya akun? ",
+      "loginNow": "Masuk disini",
+      "keepLogin": "Simpan akun",
+      "forgotPassword": "Lupa password?",
+      "phoneNumber": "Nomor telepon",
+      "signedAs": "Daftar sebagai"
     },
     "home": {
         "hello": "Halo",
