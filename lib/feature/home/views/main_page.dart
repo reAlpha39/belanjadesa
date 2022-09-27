@@ -68,7 +68,7 @@ class _MainPage extends StatelessWidget {
             .px16(),
         bigVSpacing,
         const HomeTab(),
-        bigVSpacing,
+        mediumVSpacing,
         BlocBuilder<HomeCubit, HomeState>(
           builder: (context, state) {
             return Builder(
@@ -78,6 +78,7 @@ class _MainPage extends StatelessWidget {
                     crossAxisCount: 2,
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
+                    padding: const EdgeInsets.all(16),
                     children: List.generate(
                       10,
                       (index) {
@@ -110,13 +111,14 @@ class _MainPage extends StatelessWidget {
                         ).roundedSM.border(color: Colors.grey).make();
                       },
                     ),
-                  ).px16().expand();
+                  ).expand();
                 }
                 if (cubit.selectedIndex == 1) {
                   return GridView.count(
                     crossAxisCount: 2,
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
+                    padding: const EdgeInsets.all(16),
                     children: List.generate(
                       10,
                       (index) {
@@ -149,12 +151,13 @@ class _MainPage extends StatelessWidget {
                         ).roundedSM.border(color: Colors.grey).make();
                       },
                     ),
-                  ).px16().expand();
+                  ).expand();
                 }
                 return GridView.count(
                   crossAxisCount: 2,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
+                  padding: const EdgeInsets.all(16),
                   children: List.generate(
                     10,
                     (index) {
@@ -187,7 +190,7 @@ class _MainPage extends StatelessWidget {
                       ).roundedSM.border(color: Colors.grey).make();
                     },
                   ),
-                ).px16().expand();
+                ).expand();
               },
             );
           },
