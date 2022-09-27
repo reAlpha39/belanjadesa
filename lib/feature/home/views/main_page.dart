@@ -1,3 +1,4 @@
+import 'package:belanjadesa/feature/home/views/news_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
@@ -26,7 +27,7 @@ class _MainPage extends StatelessWidget {
     final cubit = context.read<BottomNavigationCubit>();
     List<Widget> pages = [
       const HomePage(),
-      'Berita'.text.makeCentered(),
+      const NewsPage(),
       'Skoring'.text.makeCentered(),
       'Kontak'.text.makeCentered(),
       'Profil'.text.makeCentered(),

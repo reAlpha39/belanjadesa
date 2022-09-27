@@ -5,6 +5,12 @@ InputDecoration formFieldStyle(String hint, {Widget? suffixIcon}) {
     border: const OutlineInputBorder(
       borderSide: BorderSide(color: Colors.grey),
     ),
+    enabledBorder: const OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.grey),
+    ),
+    focusedBorder: const OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.grey),
+    ),
     contentPadding: const EdgeInsets.all(10),
     hintText: hint,
     suffixIcon: suffixIcon,

@@ -1,3 +1,4 @@
+import 'package:belanjadesa/feature/home/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
@@ -26,16 +27,7 @@ class _HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final cubit = context.read<HomeCubit>();
     return Scaffold(
-      appBar: AppBar(
-        title:
-            '${FlutterI18n.translate(context, "home.hello")}, Muhammad Miftah'
-                .text
-                .textStyle(bodyTextTheme)
-                .color(Colors.black)
-                .make(),
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-      ),
+      appBar: const CustomAppBar(),
       body: VStack([
         TextFormField(
           decoration: formFieldStyle(
