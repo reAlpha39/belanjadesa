@@ -1,5 +1,8 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:velocity_x/velocity_x.dart';
+
+import '../../../core/core.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({super.key});
@@ -26,7 +29,7 @@ class ProductCard extends StatelessWidget {
               .make()
               .expand(),
           Icon(
-            Icons.shopping_cart,
+            Icons.shopping_cart_outlined,
             size: 20.sp,
             color: ColorStyle.primaryColor,
           ),
