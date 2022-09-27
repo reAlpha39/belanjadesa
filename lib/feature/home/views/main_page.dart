@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../../core/core.dart';
+import '../../feature.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return _MainPage(
-      key: key,
+    return BlocProvider(
+      create: (context) => HomeCubit(),
+      child: _MainPage(key: key),
     );
   }
 }
@@ -21,6 +24,7 @@ class _MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<HomeCubit>();
     return Scaffold(
       appBar: AppBar(
         title:
@@ -35,13 +39,10 @@ class _MainPage extends StatelessWidget {
       body: VStack([
         TextFormField(
           decoration: formFieldStyle(
-            FlutterI18n.translate(
-              context,
-              'home.searchPlaceholder',
-            ),
+            FlutterI18n.translate(context, 'home.searchPlaceholder'),
             suffixIcon: const Icon(Icons.search),
           ),
-        ),
+        ).px16(),
         bigVSpacing,
         VxBox()
             .width(context.screenWidth)
@@ -53,85 +54,145 @@ class _MainPage extends StatelessWidget {
               ),
             )
             .roundedSM
-            .make(),
+            .make()
+            .px16(),
         bigVSpacing,
         FlutterI18n.translate(context, 'home.productCategory')
             .text
-            .textStyle(bodyTextTheme)
-            .make(),
+            .textStyle(
+              mediumTextTheme.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+            )
+            .make()
+            .px16(),
         bigVSpacing,
-        VxBox(
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-            VStack([
-              Image.asset(
-                makanan,
-                width: 30.w,
-              )
-                  .box
-                  .p16
-                  .color(ColorStyle.primaryColorLighter)
-                  .roundedFull
-                  .make(),
-              FlutterI18n.translate(context, 'home.food')
-                  .text
-                  .textStyle(bodyTextTheme)
-                  .make(),
-            ]),
-            VStack([
-              Image.asset(
-                fashion,
-                width: 30.w,
-              )
-                  .box
-                  .p16
-                  .color(ColorStyle.primaryColorLighter)
-                  .roundedFull
-                  .make(),
-              FlutterI18n.translate(context, 'home.fashion')
-                  .text
-                  .textStyle(bodyTextTheme)
-                  .make(),
-            ]),
-            VStack([
-              Image.asset(
-                bangunan,
-                width: 30.w,
-              )
-                  .box
-                  .p16
-                  .color(ColorStyle.primaryColorLighter)
-                  .roundedFull
-                  .make(),
-              FlutterI18n.translate(context, 'home.building')
-                  .text
-                  .textStyle(bodyTextTheme)
-                  .make(),
-            ]),
-          ]).p16(),
-        )
-            .width(context.screenWidth)
-            .border(color: ColorStyle.primaryColorLighter)
-            .roundedSM
-            .make(),
+        const HomeTab(),
         bigVSpacing,
-        ZStack([
-          Image.asset(
-            banner,
-            fit: BoxFit.cover,
-          ).box.width(context.screenWidth).height(250.h).make(),
-          VStack([
-            const SizedBox(height: 150),
-            VxBox()
-                .width(context.screenWidth)
-                .height(100.h)
-                .color(Colors.white)
-                .roundedSM
-                .make()
-                .p16(),
-          ])
-        ]),
-      ]).px16(),
+        BlocBuilder<HomeCubit, HomeState>(
+          builder: (context, state) {
+            return Builder(
+              builder: (context) {
+                if (cubit.selectedIndex == 0) {
+                  return GridView.count(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    children: List.generate(
+                      10,
+                      (index) {
+                        return VxBox(
+                          child: VStack([
+                            VxBox()
+                                .width(context.screenWidth)
+                                .height(130.h)
+                                .color(Colors.red)
+                                .roundedSM
+                                .make(),
+                            'Nama Produk'.text.textStyle(bodyTextTheme).make(),
+                            HStack([
+                              'Rp56000'
+                                  .text
+                                  .textStyle(
+                                    mediumTextTheme.copyWith(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )
+                                  .make()
+                                  .expand(),
+                              Icon(
+                                Icons.shopping_cart,
+                                size: 20.sp,
+                                color: ColorStyle.primaryColor,
+                              ),
+                            ]),
+                          ]).p(6),
+                        ).roundedSM.border(color: Colors.grey).make();
+                      },
+                    ),
+                  ).px16().expand();
+                }
+                if (cubit.selectedIndex == 1) {
+                  return GridView.count(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    children: List.generate(
+                      10,
+                      (index) {
+                        return VxBox(
+                          child: VStack([
+                            VxBox()
+                                .width(context.screenWidth)
+                                .height(130.h)
+                                .color(Colors.pink)
+                                .roundedSM
+                                .make(),
+                            'Nama Produk'.text.textStyle(bodyTextTheme).make(),
+                            HStack([
+                              'Rp56000'
+                                  .text
+                                  .textStyle(
+                                    mediumTextTheme.copyWith(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )
+                                  .make()
+                                  .expand(),
+                              Icon(
+                                Icons.shopping_cart,
+                                size: 20.sp,
+                                color: ColorStyle.primaryColor,
+                              ),
+                            ]),
+                          ]).p(6),
+                        ).roundedSM.border(color: Colors.grey).make();
+                      },
+                    ),
+                  ).px16().expand();
+                }
+                return GridView.count(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  children: List.generate(
+                    10,
+                    (index) {
+                      return VxBox(
+                        child: VStack([
+                          VxBox()
+                              .width(context.screenWidth)
+                              .height(130.h)
+                              .color(Colors.yellow)
+                              .roundedSM
+                              .make(),
+                          'Nama Produk'.text.textStyle(bodyTextTheme).make(),
+                          HStack([
+                            'Rp56000'
+                                .text
+                                .textStyle(
+                                  mediumTextTheme.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )
+                                .make()
+                                .expand(),
+                            Icon(
+                              Icons.shopping_cart,
+                              size: 20.sp,
+                              color: ColorStyle.primaryColor,
+                            ),
+                          ]),
+                        ]).p(6),
+                      ).roundedSM.border(color: Colors.grey).make();
+                    },
+                  ),
+                ).px16().expand();
+              },
+            );
+          },
+        ),
+      ]),
     );
   }
 }
