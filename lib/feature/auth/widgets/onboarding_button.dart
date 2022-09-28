@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -77,13 +78,49 @@ class OnboardingButton extends StatelessWidget {
                   ),
                 ),
               ),
+              smallVSpacing,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    onTap: () {},
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 12.h,
+                          width: 12.w,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: ColorStyle.primaryColor,
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        FlutterI18n.translate(context, 'auth.keepLogin')
+                            .text
+                            .size(smallTextTheme.fontSize)
+                            .make(),
+                      ],
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: FlutterI18n.translate(context, 'auth.forgotPassword')
+                        .text
+                        .color(ColorStyle.primaryColor)
+                        .make(),
+                  ),
+                ],
+              ),
               bigestVSpacing,
               ElevatedButton(
                 onPressed: () {
                   Navigator.pop(context);
                   context.goNamed(RouteName.home);
                 },
-                child: FlutterI18n.translate(context, 'auth.login').text.textStyle(mediumTextTheme).make(),
+                child: FlutterI18n.translate(context, 'auth.login')
+                    .text
+                    .textStyle(mediumTextTheme)
+                    .make(),
               ),
               bigestVSpacing,
               HStack([
