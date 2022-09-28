@@ -128,7 +128,7 @@ class OnboardingButton extends StatelessWidget {
                     .text
                     .textStyle(smallTextTheme)
                     .make(),
-                FlutterI18n.translate(context, 'auth.register')
+                FlutterI18n.translate(context, 'auth.registerNow')
                     .text
                     .textStyle(smallTextTheme)
                     .color(ColorStyle.primaryColor)
