@@ -3,7 +3,6 @@ import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../widgets/contact_card.dart';
 import '../widgets/contact_item.dart';
-import '../widgets/custom_appbar.dart';
 
 class ContactPage extends StatelessWidget {
   const ContactPage({super.key});
@@ -11,7 +10,6 @@ class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(),
       body: _ContactLayout(
         key: key,
       ),
@@ -27,6 +25,7 @@ class _ContactLayout extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
+        const SizedBox(height: 24),
         const ContactCard(),
         const SizedBox(height: 24),
         ContactItem(
@@ -45,4 +44,3 @@ class _ContactLayout extends StatelessWidget {
     ).px16();
   }
 }
-
