@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:velocity_x/velocity_x.dart';
 
