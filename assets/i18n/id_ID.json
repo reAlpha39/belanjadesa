@@ -37,5 +37,15 @@
         "food": "Makanan",
         "fashion": "Fashion",
         "building": "Bangunan"
+    },
+    "contact": {
+        "follow": "Cara bergabung",
+        "checkFlowchart": "Lihat flowchart",
+        "address": "Alamat",
+        "addressValue": "Jl. Brawijaya, Geblagan, Tamantirto, Kec. Kasihan, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55183",
+        "phone": "Telepon",
+        "phoneValue": "+62 87876786756",
+        "email": "Email",
+        "emailValue": "admin@belanjadesa.id"
     }
 }

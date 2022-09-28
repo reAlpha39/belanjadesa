@@ -6,6 +6,7 @@ import 'package:velocity_x/velocity_x.dart';
 
 import '../../../core/core.dart';
 import '../../feature.dart';
+import 'contact_page.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -29,7 +30,7 @@ class _MainPage extends StatelessWidget {
       const HomePage(),
       const NewsPage(),
       'Skoring'.text.makeCentered(),
-      'Kontak'.text.makeCentered(),
+      const ContactPage(),
       'Profil'.text.makeCentered(),
     ];
     return BlocBuilder<BottomNavigationCubit, BottomNavigationState>(
